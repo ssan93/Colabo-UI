@@ -3,6 +3,7 @@ import { IDiscount, IItem } from "interface";
 import { CheckFat } from "@phosphor-icons/react";
 import { SelectModal } from "components";
 import { CurrencyContext } from "contexts";
+import { formatPrice } from "utils";
 
 interface SelectDiscountModalProps {
   items: ReadonlyArray<IItem>;
@@ -58,7 +59,7 @@ export const SelectDiscountModal = ({
             <div className="w-full">
               <p className="font-semibold line-clamp-2">{item.name}</p>
               <p className="text-cyan-600 text-sm">
-                {`${item.price.toLocaleString("en-US")}${currency}`}
+                {formatPrice(item.price, currency)}
               </p>
             </div>
             {selectedItemsForDiscount.includes(item.id) && (

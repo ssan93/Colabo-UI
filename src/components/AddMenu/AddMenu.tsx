@@ -4,6 +4,7 @@ import { IDiscount, IItem } from "interface";
 import { CurrencyContext } from "contexts";
 import { isItem } from "services";
 import { ModalHeader } from "components";
+import { formatPrice } from "utils";
 
 interface AddMenuProps {
   title: string;
@@ -58,7 +59,7 @@ export const AddMenu = ({
                   <p className="font-semibold line-clamp-2">{obj.name}</p>
                   {isItem(obj) ? (
                     <p className="text-cyan-600 text-sm">
-                      {`${obj.price.toLocaleString("en-US")}${currency}`}
+                      {formatPrice(obj.price, currency)}
                     </p>
                   ) : (
                     <p className="text-cyan-600 text-sm">{`${

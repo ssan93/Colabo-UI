@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { IItem } from "interface";
 import { Trash } from "@phosphor-icons/react";
 import { CurrencyContext } from "contexts";
+import { formatPrice } from "utils";
 
 interface CartItemProps {
   item: IItem;
@@ -22,7 +23,7 @@ export const CartItem = ({
           {item.name}
         </p>
         <p className="text-cyan-600 text-sm">
-          {`${item.price.toLocaleString("en-US")}${currency}`}
+          {formatPrice(item.price, currency)}
         </p>
       </div>
       <div className="flex gap-4">
@@ -36,8 +37,7 @@ export const CartItem = ({
             className="w-12 h-8 p-2 bg-gray-100 rounded-full text-center text-cyan-600"
           />
           <p className="w-20 text-right">
-            {(item.price * item.count).toLocaleString("en-US")}
-            {currency}
+            {formatPrice(item.price * item.count, currency)}
           </p>
           <button onClick={() => deleteItem(item.id!)}>
             <Trash size={20} weight="fill" className="text-red-700" />

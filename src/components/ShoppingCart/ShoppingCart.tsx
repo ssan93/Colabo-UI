@@ -20,8 +20,6 @@ export const ShoppingCart = ({ name, date, setOpen }: ShoppingCartProps) => {
   if (isLoading) return <div>loading...</div>;
   if (error) return <div>Error...</div>;
 
-  const currency = data.currency_code === "KRW" ? "원" : "$";
-
   const openServiceMenu = () => {
     setOpenMenu("service");
   };
@@ -69,7 +67,7 @@ export const ShoppingCart = ({ name, date, setOpen }: ShoppingCartProps) => {
   };
 
   return (
-    <CurrencyContext.Provider value={currency}>
+    <CurrencyContext.Provider value={data.currency_code}>
       <div className="w-full h-full max-w-screen-sm fixed top-0 z-50 bg-white pb-40">
         <div className="h-full overflow-y-scroll">
           <CartHeader

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { IDiscount, IItem } from "interface";
 import { CaretDown, Trash } from "@phosphor-icons/react";
 import { CurrencyContext } from "contexts";
+import { getDiscount } from "utils";
 
 interface CartDiscountProps {
   items: ReadonlyArray<IItem>;
@@ -43,14 +44,7 @@ export const CartDiscount = ({
             <CaretDown size={16} />
           </button>
           <p className="w-20 text-right">
-            -
-            {Math.round(
-              discount.itemsId!.reduce((acc, id) => {
-                const item = items.find((item) => item.id === id);
-                return acc + item!.price * item!.count;
-              }, 0) * discount.rate
-            ).toLocaleString("en-US")}
-            {currency}
+            -{getDiscount(items, discount, currency)}
           </p>
           <button onClick={() => deleteDiscount(discount.id!)}>
             <Trash size={20} weight="fill" className="text-red-700" />

@@ -1,1 +1,1 @@
-export * from "./calculateDiscount";
+export * from "./calculate-prices";
