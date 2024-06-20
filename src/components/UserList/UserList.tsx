@@ -6,7 +6,7 @@ export const UserList = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="w-full h-[65vh] flex flex-col justify-evenly items-center">
+    <div className="w-full h-[80vh] flex flex-col justify-center items-center gap-8">
       <img src={colavoHero} alt="logo" className="w-full max-w-[500px]" />
       <div className="flex justify-center">
         <button

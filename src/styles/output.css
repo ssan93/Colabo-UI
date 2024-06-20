@@ -630,6 +630,18 @@ video {
   height: 100vh;
 }
 
+.h-\[3\/4\]{
+  height: 3/4;
+}
+
+.h-\[80vh\]{
+  height: 80vh;
+}
+
+.h-\[60vh\]{
+  height: 60vh;
+}
+
 .max-h-\[70vh\]{
   max-height: 70vh;
 }
@@ -713,6 +725,10 @@ video {
 
 .gap-4{
   gap: 1rem;
+}
+
+.gap-8{
+  gap: 2rem;
 }
 
 .overflow-hidden{
